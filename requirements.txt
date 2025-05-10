@@ -3,3 +3,4 @@ playhouse
 fastapi
 uvicorn
 sqlalchemy
+psycopg2
