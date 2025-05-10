@@ -6,6 +6,7 @@ import string
 import datetime
 import os
 from playhouse.db_url import connect
+from functools import wraps
 
 # PostgreSQL database
 db = connect(os.environ.get('DATABASE_URL'))
@@ -25,6 +26,7 @@ app = FastAPI()
 
 # Helper to measure time
 def timing(func):
+    @wraps(func)
     async def wrapper(*args, **kwargs):
         start = time.time()
         result = await func(*args, **kwargs)
