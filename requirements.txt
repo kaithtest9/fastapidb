@@ -1,0 +1,5 @@
+peewee
+playhouse
+fastapi
+uvicorn
+sqlalchemy
