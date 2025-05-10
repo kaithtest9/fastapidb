@@ -17,9 +17,17 @@ class BaseModel(Model):
         database = db
 
 class User(BaseModel):
+
     name = CharField()
     age = IntegerField()
     created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        table_name = 'my_users'
+        database = db
+        indexes = (
+            (('name', 'age'), True),  # unique index on name and age
+        )
 
 # FastAPI app
 app = FastAPI()
